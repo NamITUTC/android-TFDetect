@@ -30,7 +30,6 @@ import android.media.ImageReader.OnImageAvailableListener;
 import android.os.Environment;
 import android.os.SystemClock;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Size;
 import android.util.TypedValue;
 import android.view.Display;
@@ -42,7 +41,6 @@ import org.tensorflow.demo.env.ImageUtils;
 import org.tensorflow.demo.env.Logger;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Collections;
@@ -196,7 +194,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
                         requestRender();
                         detectionOverlay.postInvalidate();
-                        
+
                         computing = false;
                         if (postInferenceCallback != null) {
                             postInferenceCallback.run();
@@ -215,17 +213,9 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
         int height = (int) (location.bottom - location.top);
         final Bitmap res = cutBitmap(bitmap, x, y, width, height);
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    saveBitmap(res);
-                } catch (Exception e) {
+        saveBitmap(res);
 
-                }
 
-            }
-        }).start();
 
     }
 
@@ -238,6 +228,8 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
         outputStream.flush();
         outputStream.close();
+        Toast.makeText(this,"save",Toast.LENGTH_SHORT).show();
+
     }
 
     private Bitmap cutBitmap(Bitmap originalBitmap, int x, int y, int width, int height) {
