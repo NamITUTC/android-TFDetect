@@ -120,6 +120,7 @@ public class DetectSourceActivity extends AppCompatActivity implements View.OnCl
             public void run() {*/
         final long startTime = SystemClock.uptimeMillis();
         List<Classifier.Recognition> results = detector.recognizeImage(cropedBitmap);
+       // String title=detector.getTitle();
         long time = SystemClock.uptimeMillis() - startTime;
         System.out.println("Time procs : " + time);
         Canvas canvas = new Canvas(mutable);

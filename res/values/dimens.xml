@@ -9,4 +9,11 @@
     <dimen name="dimen30dp">30dp</dimen>
     <dimen name="dimen20dp">20dp</dimen>
     <dimen name="dimen150dp">150dp</dimen>
+    <dimen name="dimen50dp">50dp</dimen>
+    <dimen name="ones">20dp</dimen>
+    <dimen name="icon">40dp</dimen>
+    <dimen name="padding">16dp</dimen>
+    <dimen name="dimen20sp">20sp</dimen>
+    <dimen name="dimen30sp">30sp</dimen>
+    <dimen name="dimen25sp">25sp</dimen>
 </resources>

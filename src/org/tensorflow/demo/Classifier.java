@@ -95,7 +95,9 @@ public interface Classifier {
 
       return resultString.trim();
     }
+
   }
+
 
   List<Recognition> recognizeImage(Bitmap bitmap);
 
